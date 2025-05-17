@@ -135,7 +135,7 @@ public class To_DO_APP {
     public void Invaledusername_passw_Login() throws InterruptedException {
         SoftAssert softAssert = new SoftAssert();
  
-        Thread.sleep(1000);
+       
         driver.findElement(AppiumBy.xpath("//android.widget.ImageView[@content-desc='Synchronizing your ToDos']")).click();
         Thread.sleep(1000);
         driver.findElement(AppiumBy.xpath("//android.widget.Button[@resource-id='com.nweave.todo:id/okButton']")).click();
