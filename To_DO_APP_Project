@@ -152,6 +152,62 @@ public class To_DO_APP {
         softAssert.assertTrue(isError, "Error should appear for invalid username/password");
         softAssert.assertAll();
     }
+@Test(priority = 7)
+    public void Null_Login() throws InterruptedException {
+        SoftAssert softAssert = new SoftAssert();
+ 
+        Thread.sleep(1000);
+        driver.findElement(AppiumBy.xpath("//android.widget.ImageView[@content-desc='Synchronizing your ToDos']")).click();
+        driver.findElement(AppiumBy.xpath("//android.widget.Button[@resource-id='com.nweave.todo:id/okButton']")).click();
+        Thread.sleep(2000);
+        driver.findElement(AppiumBy.xpath("//android.widget.EditText[@resource-id='com.nweave.todo:id/username_edittext']")).sendKeys("");
+        driver.findElement(AppiumBy.xpath("//android.widget.EditText[@resource-id='com.nweave.todo:id/password_edittxt']")).sendKeys("");
+        driver.findElement(AppiumBy.xpath("//android.widget.Button[@text='LOGIN']")).click();
+ 
+        boolean isError = driver.findElements(AppiumBy.xpath("//android.widget.TextView[@text='Invalid credentials']")).size() > 0;
+        softAssert.assertTrue(isError, "Error should appear for null credentials");
+ 
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
+        softAssert.assertAll();
+    }
+ 
+    @Test(priority = 8)
+    public void incorrect_username_Login() throws InterruptedException {
+        SoftAssert softAssert = new SoftAssert();
+ 
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//android.widget.ImageView[@content-desc='Synchronizing your ToDos']")).click();
+        driver.findElement(By.xpath("//android.widget.Button[@resource-id='com.nweave.todo:id/okButton']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//android.widget.EditText[@resource-id='com.nweave.todo:id/username_edittext']")).sendKeys("yazanomari9gmail.com");
+        driver.findElement(By.xpath("//android.widget.EditText[@resource-id='com.nweave.todo:id/password_edittxt']")).sendKeys("111324354res");
+        driver.findElement(By.xpath("//android.widget.Button[@text='LOGIN']")).click();
+ 
+        boolean isError = driver.findElements(AppiumBy.xpath("//android.widget.Button[@resource-id='com.nweave.todo:id/okButton']")).size() > 0;
+        softAssert.assertTrue(isError, "Error alert should appear for incorrect email format");
+ 
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
+        softAssert.assertAll();
+    }
+ 
+    @Test(priority = 9)
+    public void Null_username_Login() throws InterruptedException {
+        SoftAssert softAssert = new SoftAssert();
+ 
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//android.widget.ImageView[@content-desc='Synchronizing your ToDos']")).click();
+        driver.findElement(By.xpath("//android.widget.Button[@resource-id='com.nweave.todo:id/okButton']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//android.widget.EditText[@resource-id='com.nweave.todo:id/username_edittext']")).sendKeys("");
+        driver.findElement(By.xpath("//android.widget.EditText[@resource-id='com.nweave.todo:id/password_edittxt']")).sendKeys("111324354res");
+        driver.findElement(By.xpath("//android.widget.Button[@text='LOGIN']")).click();
+ 
+        boolean isError = driver.findElements(AppiumBy.xpath("//android.widget.Button[@resource-id='com.nweave.todo:id/okButton']")).size() > 0;
+        softAssert.assertTrue(isError, "Error should appear when username is empty");
+ 
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
+        softAssert.assertAll();
+    }
  
     
 
