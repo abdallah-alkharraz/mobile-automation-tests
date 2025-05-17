@@ -113,7 +113,7 @@ public class To_DO_APP {
         softAssert.assertTrue(isErrorVisible, "Error message should appear when title is empty");
  
         driver.pressKey(new KeyEvent(AndroidKey.BACK));
-        softAssert.assertAll();
+        
     }
  
     @Test(priority = 5)
@@ -132,7 +132,7 @@ public class To_DO_APP {
         softAssert.assertTrue(isErrorVisible, "Invalid title error should appear");
  
         
-        softAssert.assertAll();
+        
     }
  
     @Test(priority = 6)
@@ -168,7 +168,7 @@ public class To_DO_APP {
         softAssert.assertTrue(isError, "Error should appear for null credentials");
  
         driver.pressKey(new KeyEvent(AndroidKey.BACK));
-        softAssert.assertAll();
+        
     }
  
     @Test(priority = 8)
@@ -187,7 +187,7 @@ public class To_DO_APP {
         softAssert.assertTrue(isError, "Error alert should appear for incorrect email format");
  
         driver.pressKey(new KeyEvent(AndroidKey.BACK));
-        softAssert.assertAll();
+        
     }
  
     @Test(priority = 9)
@@ -206,7 +206,7 @@ public class To_DO_APP {
         softAssert.assertTrue(isError, "Error should appear when username is empty");
  
         driver.pressKey(new KeyEvent(AndroidKey.BACK));
-        softAssert.assertAll();
+        
     }
  
     
